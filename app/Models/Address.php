@@ -23,12 +23,19 @@ class Address extends Model
         'AdrCd',
         'CtPerson',     // Database column is 'CtPerson'
         'FstNm',
+        'LstNm',
         'IDNo',
         'Title',
         'Address',
+        'AddressLine2',
+        'Locality',
+        'Town',
+        'City',
+        'PostalCode',
         'Country',
         'AdrTypKy',     // Correct: database has 'AdrTypKy'
         'TP1',
+        'TP2',
         'Fax',
         'Email',
         'Website',
@@ -38,6 +45,8 @@ class Address extends Model
         'uuid',
         'fVATRegistered',
         'VATNo',
+        'BRNo',
+        'TINNo',
     ];
 
     protected $casts = [
@@ -92,7 +101,8 @@ class Address extends Model
     {
         $nameParts = array_filter([
             $this->Title,
-            $this->FstNm
+            $this->FstNm,
+            $this->LstNm,
         ]);
 
         return implode(' ', $nameParts);
